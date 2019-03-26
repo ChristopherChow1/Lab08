@@ -1,15 +1,9 @@
 
-public class Shape {
-	public enum shape {
-		THIMBLE, BOOT, RACECAR
-	}
-	Shape shape;
 
-	public Shape(Shape shape) {
-		this.shape = shape;
-	}
+public enum Shape {
+	THIMBLE, BOOT, RACECAR;
 
 	public String toString() {
-		return String.format("Game piece: %s", shape.toString());
+		return name().toLowerCase();
 	}
 }
