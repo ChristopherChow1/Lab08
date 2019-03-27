@@ -9,7 +9,8 @@ public class BoardGame {
 	protected LinkedHashMap<String, Location> playerLocations = new LinkedHashMap<>();
 	//private GamePiece gamePiece;
 	public BoardGame() {
-
+		
+		
 	}
 	public boolean addPlayer(String playerName, GamePiece gamePiece, Location initialLocation) {
 
@@ -39,7 +40,7 @@ public class BoardGame {
 	public java.lang.String[] moveTwoPlayers(String[] playerNames, Location[] newLocations){
 		GamePiece a = getPlayerGamePiece(playerNames[0]);
 		GamePiece b = getPlayerGamePiece(playerNames[1]);
-		String[] R = new String[1];
+		String[] R = new String[2];
 		if (a.equals(GamePiece.movesFirst(a,b))) {
 			movePlayer(playerNames[0], newLocations[0]);
 			movePlayer(playerNames[1], newLocations[1]);
@@ -72,8 +73,8 @@ public class BoardGame {
 			if (temp.getValue().equals(loc)) {
 				Players.add(temp.getValue().toString());
 				for(Entry<String, GamePiece> temp1 : playerPieces.entrySet()) {
-					if(temp1.getKey().equals(temp.getKey()))
-						GP.add(temp1.getValue());
+					if(temp1.getKey().equals(temp.getKey())) {
+						GP.add(temp1.getValue());}
 				}
 			}
 		}
@@ -100,4 +101,5 @@ public class BoardGame {
 		}
 		return allGamePieces;
 	}
+
 }
