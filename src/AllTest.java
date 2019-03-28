@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
-import java.util.Map.Entry;
+
 
 import org.junit.*;
 
@@ -36,20 +36,28 @@ public class AllTest {
 		ArrayList<GamePiece> PieceLocation = new ArrayList<GamePiece>();
 		PieceLocation.add(boardGame.getPlayerGamePiece("Suzy"));
 		PieceLocation.add(boardGame.getPlayerGamePiece("Jenny"));
-		
+
 		Assert.assertEquals("getGamePiecesAtLocation", PieceLocation, boardGame.getGamePiecesAtLocation(Location.BALLROOM));
 		Assert.assertEquals("getPlayers", allPlayers, boardGame.getPlayers());
-		Set<Location> Locations = new HashSet<Location>();
-		Set<GamePiece> GamePieces = new HashSet<GamePiece>();
-		for(Entry<String, Location> temp : boardGame.playerLocations.entrySet()) {
-			Locations.add(temp.getValue());
-		}
+		//Set<Location> Locations = new HashSet<Location>();
+		//Set<GamePiece> GamePieces = new HashSet<GamePiece>();
+
+		//for(Entry<String, Location> temp : boardGame.playerLocations.entrySet()) {
+		//	Locations.add(temp.getValue());
+		//}
+		//Assert.assertEquals("wrong name", GamePieces, boardGame.getPlayerLocations());
+
+		//for(Entry<String, GamePiece> temp1 : boardGame.playerPieces.entrySet()) {
+		//	GamePieces.add(temp1.getValue());
+		//}
+		//Assert.assertEquals("wrong name", GamePieces, boardGame.getPlayerPieces());
+
+		Assert.assertEquals("wrong color",GamePiece.BLUE_BOOT.getColor(), Color.BLUE);
+		Assert.assertEquals("wrong Shape",GamePiece.BLUE_BOOT.getShape().toString(), Shape.BOOT.toString());
+		GamePiece testPiece = GamePiece.movesFirst(GamePiece.RED_THIMBLE, GamePiece.MAGENTA_RACER);
+		Assert.assertEquals("wrong movesFirst",testPiece, GamePiece.MAGENTA_RACER);
 		
-		Assert.assertEquals("wrong name", GamePieces, boardGame.getPlayerLocations());
-		for(Entry<String, GamePiece> temp1 : boardGame.playerPieces.entrySet()) {
-			GamePieces.add(temp1.getValue());
-		}
-		Assert.assertEquals("wrong name", GamePieces, boardGame.getPlayerPieces());
-		
+		//Assert.assertEquals("wrong GamePiece toString",testPiece.toString(), GamePiece.MAGENTA_RACER.toString());
+
 	}
 }
